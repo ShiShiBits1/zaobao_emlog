@@ -22,19 +22,19 @@ from urllib3.util.retry import Retry
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Emlog 配置
-DOMAIN      = os.environ("EMLOG_DOMAIN") or "https://emlog.xxxxxxxx.com"  # 结尾不要 /
-API_KEY     = os.environ("EMLOG_API_KEY") or "xxxxxxxxxxxxxxxxxxxxxx"   # Emlog API Key
-AUTHOR_UID  = int(os.environ("EMLOG_AUTHOR_UID")) or 1 # 作者 UID
-SORT_ID     = int(os.environ("EMLOG_SORT_ID")) or 2   # 分类 ID
+DOMAIN      = os.environ.get("EMLOG_DOMAIN") or "https://emlog.xxxxxxxx.com"  # 结尾不要 /
+API_KEY     = os.environ.get("EMLOG_API_KEY") or "xxxxxxxxxxxxxxxxxxxxxx"   # Emlog API Key
+AUTHOR_UID  = int(os.environ.get("EMLOG_AUTHOR_UID")) or 1 # 作者 UID
+SORT_ID     = int(os.environ.get("EMLOG_SORT_ID")) or 2   # 分类 ID
 
 # ALAPI 配置
-ALAPI_TOKEN = os.environ("ALAPI_TOKEN") or "xxxxxxxxxxxxxxxx"   # ALAPI Token
+ALAPI_TOKEN = os.environ.get("ALAPI_TOKEN") or "xxxxxxxxxxxxxxxx"   # ALAPI Token
 ALAPI_URL   = "https://v3.alapi.cn/api/zaobao"  # ALAPI 早报接口
 
 # 飞书机器人应用配置
-FS_APP_ID = os.environ("FEISHU_APP_ID") or "cli_xxxxxxxxxxxxxxx"
-FS_APP_SECRET = os.environ("FEISHU_APP_SECRET") or "xxxxxxxxxxxxxxxxxxxxxx"
-FS_CHAT_ID = os.environ("FEISHU_CHAT_ID") or "oc_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # 指定群组ID
+FS_APP_ID = os.environ.get("FEISHU_APP_ID") or "cli_xxxxxxxxxxxxxxx"
+FS_APP_SECRET = os.environ.get("FEISHU_APP_SECRET") or "xxxxxxxxxxxxxxxxxxxxxx"
+FS_CHAT_ID = os.environ.get("FEISHU_CHAT_ID") or "oc_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # 指定群组ID
 
 
 TIMEOUT = 20
@@ -367,4 +367,5 @@ def main():
         raise
 
 if __name__ == "__main__":
+
     main()
